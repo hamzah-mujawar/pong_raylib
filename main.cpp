@@ -7,6 +7,14 @@ int main()
 
     InitWindow(screenWidth, screenHeight, "My Pong Game!");
 
+    SetTargetFPS(60);
+
+    while (!(WindowShouldClose()))
+    {
+        BeginDrawing();
+        EndDrawing();
+    }
+
     CloseWindow();
 
     return 0;
