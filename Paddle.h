@@ -25,6 +25,8 @@ public:
 
     void Draw();
     void Update();
+    void UpdateCpu(int ballY);
+    void BoundMovement();
 
 private:
     float m_x{};

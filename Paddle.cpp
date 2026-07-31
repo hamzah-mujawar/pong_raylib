@@ -14,6 +14,18 @@ void setWidth(float width);
 void setHeight(float height);
 void setSpeed(int speed);
 
+void Paddle::BoundMovement()
+{
+    if (m_y <= 0)
+    {
+        m_y = 0;
+    }
+    if (m_y + m_height >= GetScreenHeight())
+    {
+        m_y = GetScreenHeight() - m_height;
+    }
+}
+
 void Paddle::Draw() { DrawRectangle(m_x, m_y, m_width, m_height, WHITE); }
 
 void Paddle::Update()
@@ -26,13 +38,18 @@ void Paddle::Update()
     {
         m_y = m_y + m_speed;
     }
+    BoundMovement();
+}
 
-    if (m_y <= 0)
+void Paddle::UpdateCpu(int ballY)
+{
+    if (m_y + m_height / 2 > ballY)
     {
-        m_y = 0;
+        m_y = m_y - m_speed;
     }
-    if (m_y + m_height >= GetScreenHeight())
+    if (m_y + m_height / 2 <= ballY)
     {
-        m_y = GetScreenHeight() - m_height;
+        m_y = m_y + m_speed;
     }
+    BoundMovement();
 }

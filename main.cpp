@@ -11,8 +11,13 @@ int main()
     const int rectangleHeight{120};
 
     Ball ball{screenWidth / 2, screenHeight / 2, 20, 7, 7};
+
     Paddle player{10, screenHeight / 2 - rectangleHeight / 2, rectangleWidth,
                   rectangleHeight, 6};
+
+    Paddle cpu{screenWidth - rectangleWidth - 10,
+               screenHeight / 2 - rectangleHeight / 2, rectangleWidth,
+               rectangleHeight, 6};
 
     InitWindow(screenWidth, screenHeight, "My Pong Game!");
 
@@ -24,6 +29,7 @@ int main()
 
         ball.Update();
         player.Update();
+        cpu.UpdateCpu(ball.getY());
 
         ClearBackground(BLACK);
 
@@ -33,9 +39,7 @@ int main()
 
         player.Draw();
 
-        DrawRectangle(screenWidth - rectangleWidth - 10,
-                      screenHeight / 2 - rectangleHeight / 2, rectangleWidth,
-                      rectangleHeight, WHITE);
+        cpu.Draw();
 
         EndDrawing();
     }
