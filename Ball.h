@@ -17,11 +17,11 @@ public:
     void setRadius(int radius);
 
     // getters
-    float getX() { return m_x; }
-    float getY() { return m_y; }
-    int getSpeedX() { return m_speedX; }
-    int getSpeedY() { return m_speedY; }
-    int getRadius() { return m_radius; }
+    float getX() const { return m_x; }
+    float getY() const { return m_y; }
+    int getSpeedX() const { return m_speedX; }
+    int getSpeedY() const { return m_speedY; }
+    int getRadius() const { return m_radius; }
 
     void Draw();
     void Update();

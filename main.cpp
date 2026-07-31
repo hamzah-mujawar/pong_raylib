@@ -1,4 +1,5 @@
 #include "Ball.h"
+#include "Paddle.h"
 #include "raylib.h"
 
 int main()
@@ -10,6 +11,8 @@ int main()
     const int rectangleHeight{120};
 
     Ball ball{screenWidth / 2, screenHeight / 2, 20, 7, 7};
+    Paddle player{10, screenHeight / 2 - rectangleHeight / 2, rectangleWidth,
+                  rectangleHeight, 6};
 
     InitWindow(screenWidth, screenHeight, "My Pong Game!");
 
@@ -20,6 +23,7 @@ int main()
         BeginDrawing();
 
         ball.Update();
+        player.Update();
 
         ClearBackground(BLACK);
 
@@ -27,8 +31,8 @@ int main()
 
         ball.Draw();
 
-        DrawRectangle(10, screenHeight / 2 - rectangleHeight / 2,
-                      rectangleWidth, rectangleHeight, WHITE);
+        player.Draw();
+
         DrawRectangle(screenWidth - rectangleWidth - 10,
                       screenHeight / 2 - rectangleHeight / 2, rectangleWidth,
                       rectangleHeight, WHITE);
