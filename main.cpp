@@ -31,6 +31,22 @@ int main()
         player.Update();
         cpu.UpdateCpu(ball.getY());
 
+        if (CheckCollisionCircleRec(
+                Vector2{ball.getX(), ball.getY()}, ball.getRadius(),
+                Rectangle{player.getX(), player.getY(), player.getWidth(),
+                          player.getHeight()}))
+        {
+            ball.setSpeedX(ball.getSpeedX() * -1);
+        }
+
+        if (CheckCollisionCircleRec(Vector2{ball.getX(), ball.getY()},
+                                    ball.getRadius(),
+                                    Rectangle{cpu.getX(), cpu.getY(),
+                                              cpu.getWidth(), cpu.getHeight()}))
+        {
+            ball.setSpeedX(ball.getSpeedX() * -1);
+        }
+
         ClearBackground(BLACK);
 
         DrawLine(screenWidth / 2, 0, screenWidth / 2, screenHeight, WHITE);
