@@ -1,0 +1,6 @@
+.ccls-cache
+.direnv
+**/build 
+**/.build
+**/.direnv 
+**/.cache
