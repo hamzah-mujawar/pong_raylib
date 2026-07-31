@@ -57,6 +57,11 @@ int main()
 
         cpu.Draw();
 
+        DrawText(TextFormat("%i", ball.getCpuScore()), screenWidth / 4 - 20, 20,
+                 80, WHITE);
+        DrawText(TextFormat("%i", ball.getScore()), 3 * screenWidth / 4 - 20,
+                 20, 80, WHITE);
+
         EndDrawing();
     }
 

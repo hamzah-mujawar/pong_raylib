@@ -15,6 +15,8 @@ public:
     void setSpeedX(int speedX);
     void setSpeedY(int speedY);
     void setRadius(int radius);
+    void setScore(int score);
+    void setCpuScore(int score);
 
     // getters
     float getX() const { return m_x; }
@@ -22,9 +24,12 @@ public:
     int getSpeedX() const { return m_speedX; }
     int getSpeedY() const { return m_speedY; }
     int getRadius() const { return m_radius; }
+    int getScore() const { return m_score; }
+    int getCpuScore() const { return m_cpu_score; }
 
     void Draw();
     void Update();
+    void ResetBall();
 
 private:
     float m_x{};
@@ -32,4 +37,6 @@ private:
     int m_speedX{};
     int m_speedY{};
     int m_radius{};
+    int m_score{};
+    int m_cpu_score{};
 };
